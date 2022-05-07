@@ -27,7 +27,14 @@
             <td>@todo.Date</td>
             <td>@todo.IsCompleted</td>
             <td>
-              <a href="" class="btn btn-sm btn-success">Completar</a>
+              <a
+                asp-controller="Todo"
+                asp-action="ToComplete"
+                asp-route-id="@todo.Id"
+                class="btn btn-sm btn-success"
+              >
+                Concluir
+              </a>
               <a
                 asp-controller="Todo"
                 asp-action="Edit"
