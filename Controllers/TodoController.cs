@@ -37,11 +37,11 @@ public class TodoController : Controller
     public IActionResult Create()
     {
         ViewData["Title"] = "Cadastrar Tarefa";
-        return View();
+        return View("Form");
     }
 
     [HttpPost]
-    public IActionResult Create(CreateTodoViewModel data)
+    public IActionResult Create(FormTodoViewModel data)
     {
         var todo = new Todo(data.Title, data.Date);
         _context.Add(todo);
@@ -57,12 +57,12 @@ public class TodoController : Controller
             return NotFound();
         }
         ViewData["Title"] = "Editar Tarefa";
-        var viewModel = new EditTodoViewModel { Title = todo.Title, Date = todo.Date };
-        return View(viewModel);
+        var viewModel = new FormTodoViewModel { Title = todo.Title, Date = todo.Date };
+        return View("Form", viewModel);
     }
 
     [HttpPost]
-    public IActionResult Edit(int id, EditTodoViewModel data)
+    public IActionResult Edit(int id, FormTodoViewModel data)
     {
         var todo = _context.Todos.Find(id);
         if (todo is null)
