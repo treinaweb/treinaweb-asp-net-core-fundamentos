@@ -1,1 +1,8 @@
-<h1>Olá ASP .NET Core MVC</h1>
+@{
+  var todo = ViewBag.Todo;
+}
+
+<h1>
+  @todo?.Title
+</h1>
+<p>@todo?.Description</p>
