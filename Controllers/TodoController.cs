@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TWTodoList.Contexts;
+using TWTodoList.Models;
 using TWTodoList.ViewModels;
 
 namespace TWTodoList.Controllers;
@@ -37,5 +38,14 @@ public class TodoController : Controller
     {
         ViewData["Title"] = "Cadastrar Tarefa";
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(CreateTodoViewModel data)
+    {
+        var todo = new Todo(data.Title, data.Date);
+        _context.Add(todo);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Index));
     }
 }
