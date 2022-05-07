@@ -1,0 +1,45 @@
+@model ListTodoViewModel
+
+<div class="row">
+  <div class="col text-center">
+    <h1>@ViewData["Title"]</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Título</th>
+          <th scope="col">Data</th>
+          <th scope="col">Completo?</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var todo in Model.Todos)
+        {
+          <tr>
+            <th scope="row">@todo.Id</th>
+            <td>@todo.Title</td>
+            <td>@todo.Date</td>
+            <td>@todo.IsCompleted</td>
+            <td>
+              <a href="" class="btn btn-sm btn-success">Completar</a>
+              <a href="" class="btn btn-sm btn-warning">Editar</a>
+              <a href="" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <a href="" class="btn btn-primary">Nova Tarefa</a>
+  </div>
+</div>
