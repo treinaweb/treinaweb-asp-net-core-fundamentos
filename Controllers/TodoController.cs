@@ -20,4 +20,16 @@ public class TodoController : Controller
         ViewData["Title"] = "Lista de Tarefas";
         return View(viewModel);
     }
+
+    public IActionResult Delete(int id)
+    {
+        var todo = _context.Todos.Find(id);
+        if (todo is null)
+        {
+            return NotFound();
+        }
+        _context.Remove(todo);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
 }
