@@ -1,0 +1,21 @@
+@model EditTodoViewModel
+
+<div class="row">
+  <div class="col text-center">
+    <h1>@ViewData["Title"]</h1>
+  </div>
+</div>
+
+<form method="post">
+  <div class="mb-3">
+    <label asp-for="Title" class="form-label">Título</label>
+    <input asp-for="Title" type="text" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label asp-for="Date" class="form-label">Data</label>
+    <input asp-for="Date" type="date" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
